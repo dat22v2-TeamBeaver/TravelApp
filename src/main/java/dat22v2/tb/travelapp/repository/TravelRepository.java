@@ -1,4 +1,10 @@
 package dat22v2.tb.travelapp.repository;
 
-public class TravelRepository {
+import dat22v2.tb.travelapp.entity.Travel;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface TravelRepository extends JpaRepository<Travel, Integer> {
+
+
+
 }
