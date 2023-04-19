@@ -31,7 +31,7 @@ public class TravelService {
 
         //check DB else ask API
 
-        Mono<TravelResponse> test = MonoApiCaller.callGetApi(TravelResponse.class,"http.test",2,3,4);
+        Mono<TravelResponse> test = MonoApiCaller.callGetApi(TravelResponse.class,"https://someUrl.com?number1=%s&number2=%s&number3=%s&",1,2,3);
         // Then return a response or exception depending on circumstances
         throw new TravelException("miav");
 
