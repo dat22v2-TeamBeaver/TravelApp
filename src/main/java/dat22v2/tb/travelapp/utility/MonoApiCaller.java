@@ -7,6 +7,7 @@ import reactor.core.publisher.Mono;
 import java.util.Map;
 
 public class MonoApiCaller {
+
     public static <T> Mono<T> callGetApi(Class<T> responseType, String url, Object... urlParams) {
         String fullUri = String.format(url, urlParams);
         WebClient client = WebClient.create();
@@ -26,4 +27,14 @@ public class MonoApiCaller {
             .bodyToMono(responseType);
     }
 
+
+    public static <T> Mono<T> callTheNewPostApi(Class<T> responseType,String url, Object body, Map<String, String> headers) {
+        WebClient client = WebClient.builder()
+                .defaultHeaders(httpHeader -> headers.forEach((httpHeader::add))).build();
+        return client.post()
+                .uri(url)
+                .body(BodyInserters.fromValue(body))
+                .retrieve()
+                .bodyToMono(responseType);
+    }
 }
