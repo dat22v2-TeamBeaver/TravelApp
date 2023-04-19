@@ -16,8 +16,9 @@ public class MonoApiCaller {
             .bodyToMono(responseType);
     }
 
-    public static <T> Mono<T> callPostApi(Class<T> responseType,String url, Map<String, Object> body) {
-        WebClient client = WebClient.create();
+    public static <T> Mono<T> callPostApi(Class<T> responseType,String url, Map<String, Object> body, Map<String, String> headers) {
+        WebClient client = WebClient.builder()
+            .defaultHeaders(httpHeader -> headers.forEach((httpHeader::add))).build();
         return client.post()
             .uri(url)
             .body(BodyInserters.fromValue(body))
