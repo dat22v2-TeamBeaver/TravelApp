@@ -3,6 +3,8 @@ package dat22v2.tb.travelapp.api;
 
 import dat22v2.tb.travelapp.dto.TravelRequest;
 import dat22v2.tb.travelapp.dto.TravelResponse;
+import dat22v2.tb.travelapp.dto.openroute.DirectionResponse;
+import dat22v2.tb.travelapp.dto.openroute.GeolocationResponse;
 import dat22v2.tb.travelapp.exceptions.TravelException;
 import dat22v2.tb.travelapp.service.TravelService;
 import org.springframework.http.HttpStatus;
@@ -26,8 +28,15 @@ public class TravelController {
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
+    @GetMapping("/findGeo")
+    public GeolocationResponse findGeolocation(@RequestParam String location) {
+        return travelService.getGeolocation(location);
+    }
 
-
+    @GetMapping("/findTravel")
+    public DirectionResponse findTravel(@RequestParam String start, @RequestParam String end) {
+        return travelService.getTravelDetails(start,end);
+    }
 
     @PostMapping()
     public ResponseEntity<TravelResponse> getTravel(@RequestBody TravelRequest body) throws TravelException {
