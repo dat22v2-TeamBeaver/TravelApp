@@ -3,6 +3,7 @@ package dat22v2.tb.travelapp.api;
 
 import dat22v2.tb.travelapp.dto.TravelRequest;
 import dat22v2.tb.travelapp.dto.TravelResponse;
+import dat22v2.tb.travelapp.dto.chatGptResponse.ChatGPTResponse;
 import dat22v2.tb.travelapp.dto.openroute.DirectionResponse;
 import dat22v2.tb.travelapp.dto.openroute.GeolocationResponse;
 import dat22v2.tb.travelapp.exceptions.TravelException;
@@ -36,6 +37,11 @@ public class TravelController {
     @GetMapping("/findTravel")
     public DirectionResponse findTravel(@RequestParam String start, @RequestParam String end) {
         return travelService.getTravelDetails(start,end);
+    }
+
+    @GetMapping("/gpt")
+    public ChatGPTResponse gptResponse() {
+        return travelService.getChatGPTResponse();
     }
 
     @PostMapping()
