@@ -1,4 +1,4 @@
-package dat22v2.tb;
+package dat22v2;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
