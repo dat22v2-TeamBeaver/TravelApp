@@ -3,6 +3,7 @@ package dat22v2.tb.travelapp.api;
 
 import dat22v2.tb.travelapp.dto.TravelRequest;
 import dat22v2.tb.travelapp.dto.TravelResponse;
+import dat22v2.tb.travelapp.exceptions.TravelException;
 import dat22v2.tb.travelapp.service.TravelService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -29,12 +30,8 @@ public class TravelController {
 
 
     @PostMapping()
-    public TravelResponse getTravel(@RequestBody TravelRequest body) {
-
-        //check db
-
-
-
-        return new TravelResponse();
+    public ResponseEntity<TravelResponse> getTravel(@RequestBody TravelRequest body) throws TravelException {
+        TravelResponse response = travelService.getTravel(body);
+        return ResponseEntity.ok(response);
     }
 }
