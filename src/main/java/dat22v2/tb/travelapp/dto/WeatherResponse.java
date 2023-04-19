@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import reactor.core.publisher.Mono;
 
 import java.util.ArrayList;
 
@@ -26,4 +27,22 @@ public class WeatherResponse {
     public int id;
     public String name;
     public int cod;
+
+    public static Mono<WeatherResponse> fromMono(Mono<WeatherResponse> mono) {
+        return mono.map(response -> new WeatherResponse(
+                response.getCoord(),
+                response.getWeather(),
+                response.getBase(),
+                response.getMain(),
+                response.getVisibility(),
+                response.getWind(),
+                response.getClouds(),
+                response.getDt(),
+                response.getSys(),
+                response.getTimezone(),
+                response.getId(),
+                response.getName(),
+                response.getCod()
+        ));
+    }
 }
