@@ -14,13 +14,17 @@ public class RemoteApiService {
     WeatherAPIKeyholder weatherAPIKeyholder;
 
 
-    public Mono<WeatherResponse> atmosphereResponse(String location){
+    public WeatherResponse atmosphereResponse(String location){
         WebClient webClient = WebClient.create();
-        Mono<WeatherResponse> response = webClient.get()
+        Mono<WeatherResponse> weatherMono = webClient.get()
                 .uri("http://api.openweathermap.org/data/2.5/weather?q="+location+"&appid="
                         +weatherAPIKeyholder.getWeatherAPIKey())
                 .retrieve()
                 .bodyToMono(WeatherResponse.class);
+        Mono<WeatherResponse> weatherResponse = WeatherResponse.fromMono(weatherMono);
+
+        WeatherResponse response = weatherResponse.block();
+
         return response;
 
     }
