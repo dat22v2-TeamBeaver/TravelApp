@@ -2,17 +2,20 @@ package dat22v2.tb.travelapp.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import lombok.*;
 
 @Entity
+@Getter
+@Setter
+@NoArgsConstructor
+
 public class Travel {
     @Id
     private Long id;
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+    private String name;
 
-    public Long getId() {
-        return id;
-    }
+
+
+
 }
