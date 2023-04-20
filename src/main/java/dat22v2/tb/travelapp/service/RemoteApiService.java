@@ -7,6 +7,8 @@ import dat22v2.tb.travelapp.utility.MonoApiCaller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class RemoteApiService {
 
@@ -14,10 +16,9 @@ public class RemoteApiService {
     APIKeyHolder apiKeyHolder;
 
 
-    public WeatherResponse atmosphereResponse(String location) {
-        String OPEN_WEATHER_API_URL = "http://api.openweathermap.org/data/2.5/weather?q=%s&appid=%s";
-        return MonoApiCaller.callGetApi(WeatherResponse.class, OPEN_WEATHER_API_URL,
-            location, apiKeyHolder.getWeatherAPIKey()).block();
+    public WeatherResponse atmosphereResponse(double latitude, double longtitude) {
+        String OPEN_WEATHER_API_URL = "https://api.openweathermap.org/data/2.5/weather?lat=%s&lon=%s&appid=%s";
+        return MonoApiCaller.callGetApi(WeatherResponse.class, OPEN_WEATHER_API_URL,latitude,longtitude, apiKeyHolder.getWeatherAPIKey()).block();
     }
 
 
