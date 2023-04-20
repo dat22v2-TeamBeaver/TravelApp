@@ -1,4 +1,4 @@
-package dat22v2.tb.travelapp.dto.chatGptResponse;
+package dat22v2.tb.travelapp.dto.chatGPT.chatGptResponse;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

@@ -3,9 +3,9 @@ package dat22v2.tb.travelapp.service;
 
 import dat22v2.tb.travelapp.dto.TravelRequest;
 import dat22v2.tb.travelapp.dto.TravelResponse;
-import dat22v2.tb.travelapp.dto.chatGptRequest.ChatGPTRequest;
-import dat22v2.tb.travelapp.dto.chatGptRequest.Message;
-import dat22v2.tb.travelapp.dto.chatGptResponse.ChatGPTResponse;
+import dat22v2.tb.travelapp.dto.chatGPT.chatGptRequest.ChatGPTRequest;
+import dat22v2.tb.travelapp.dto.chatGPT.chatGptRequest.Message;
+import dat22v2.tb.travelapp.dto.chatGPT.chatGptResponse.ChatGPTResponse;
 import dat22v2.tb.travelapp.dto.openroute.DirectionResponse;
 import dat22v2.tb.travelapp.dto.openroute.GeolocationResponse;
 import dat22v2.tb.travelapp.exceptions.TravelException;
@@ -36,15 +36,22 @@ public class TravelService {
     ChatGPTRequest gptRequest = new ChatGPTRequest();
 
 
-    public TravelResponse getTravel(TravelRequest body) throws TravelException { //Deprecated
+    public TravelResponse getTravel(TravelRequest body) throws TravelException {
 
-        //check DB else ask API
+        //TODO
+        //the big boi
+        //step1 body should contain departure and destination.
+            //step 1.1 check database for this route and return it if information is less than 30? minutes old
+            //step 1.2 Get geolocation for these
+        //step2 get route for this geolocation
+        //step3 find weather for the regions this route entails
+        //step4 formulate the route and weather information
+        //step5 ask chatGPT with information from step4
+        //step6 formulate a response we can send back to user
 
-        Mono<TravelResponse> test = MonoApiCaller.callGetApi(TravelResponse.class,"https://someUrl.com?number1=%s&number2=%s&number3=%s&",1,2,3);
-        // Then return a response or exception depending on circumstances
-        throw new TravelException("miav");
 
-        //return null;
+
+        return null;
     }
 
     public GeolocationResponse getGeolocation(String location){
