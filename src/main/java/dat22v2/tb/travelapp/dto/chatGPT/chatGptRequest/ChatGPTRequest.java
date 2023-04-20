@@ -18,7 +18,7 @@ public class ChatGPTRequest {
     public void addMessage(Message newMessage){
         if(messages == null){
             messages = new ArrayList<>();
-            Message system = new Message("system","You are a tour guide for a user, you take in information about a trip, about its duration, how long is the trip, the weather and then some tourist attractions, you must name and describe the locations of them. Summarize the information and give recommendations to the tourist attractions and about the weather, do the attractions in short bullet points. Mention the trip duration and distance. The token limit is 400.");
+            Message system = new Message("system","You are a tour guide for a user, you take information in this order; start location, destination, trip duration(Convert into hours when needed), trip distance, weather status start location, weather status destination. You will mention all of this information in the language of the country given, and then make a guide on the closest tourist attractions that are along the way. Token limit is 200.");
             messages.add(system);
         }
         messages.add(newMessage);
