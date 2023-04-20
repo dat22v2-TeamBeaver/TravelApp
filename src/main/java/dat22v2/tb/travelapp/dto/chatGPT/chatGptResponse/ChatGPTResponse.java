@@ -1,7 +1,5 @@
-package dat22v2.tb.travelapp.dto.chatGptResponse;
+package dat22v2.tb.travelapp.dto.chatGPT.chatGptResponse;
 
-import dat22v2.tb.travelapp.dto.chatGptResponse.Choice;
-import dat22v2.tb.travelapp.dto.chatGptResponse.Usage;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;

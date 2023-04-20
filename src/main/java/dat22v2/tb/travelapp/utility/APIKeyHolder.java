@@ -9,8 +9,16 @@ public class APIKeyHolder {
 
     @Value("${OPEN_ROUTE_API_KEY}")
     @Getter
-     String OpenRouteAPIKey;
+    private String openRouteAPIKey;
     @Value("${CHATGPT_API_KEY}")
     @Getter
-     String ChatGPTAPIKey;
+    private String chatGPTAPIKey;
+    @Value("${WEATHER_API_KEY}")
+    @Getter
+    private String weatherAPIKey;
+
+
+
+
+
 }
