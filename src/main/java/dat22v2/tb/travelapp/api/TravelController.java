@@ -52,6 +52,6 @@ public class TravelController {
 
     @GetMapping("/weather/{location}")
     public WeatherResponse getWeather(@PathVariable String location){
-        return remoteApiService.atmosphereResponse(location);
+        return remoteApiService.getAtmosphereResponse(location);
     }
 }
