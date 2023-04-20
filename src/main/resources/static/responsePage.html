@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Location Finder - Results</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f8f8;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      max-width: 1000px;
+      width: 100%;
+      gap: 2rem;
+    }
+    .section {
+      background-color: #fff;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      flex: 1;
+      min-width: 400px;
+      margin-bottom: 2rem;
+    }
+    h1 {
+      text-align: center;
+      width: 100%;
+      margin-bottom: 2rem;
+    }
+    h2 {
+      margin-bottom: 1rem;
+    }
+    .scrollable {
+      overflow-y: auto;
+      max-height: 300px;
+      padding-right: 0.5rem;
+    }
+    .scrollable::-webkit-scrollbar {
+      width: 5px;
+    }
+    .scrollable::-webkit-scrollbar-thumb {
+      background-color: #ccc;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1>Results</h1>
+
+  <div class="section">
+    <h2>Weather Info</h2>
+    <p id="weather-info">Weather data will be displayed here.</p>
+  </div>
+
+  <div class="section">
+    <h2>Places to Visit</h2>
+    <p id="places-recommendations">Recommendations for places to visit will be displayed here.</p>
+  </div>
+
+  <div class="section">
+    <h2>What to Wear</h2>
+    <p id="clothing-recommendations">Clothing recommendations will be displayed here.</p>
+  </div>
+
+  <div class="section">
+    <h2>Navigation</h2>
+    <div id="navigation-text" class="scrollable">Text navigation will be displayed here in a scrollable box.</div>
+  </div>
+</div>
+
+<script>
+  // Replace the following data with actual data from your backend
+  const weatherInfo = "Placeholder weather info";
+  const placesRecommendations = "Placeholder recommendations for places to visit";
+  const clothingRecommendations = "Placeholder clothing recommendations";
+  const navigationText = "Placeholder navigation text";
+
+  document.getElementById("weather-info").textContent = weatherInfo;
+  document.getElementById("places-recommendations").textContent = placesRecommendations;
+  document.getElementById("clothing-recommendations").textContent = clothingRecommendations;
+  document.getElementById("navigation-text").textContent = navigationText;
+</script>
+</body>
+</html>

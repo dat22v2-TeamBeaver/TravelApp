@@ -11,7 +11,7 @@ import java.util.ArrayList;
 @Getter
 @Setter
 @NoArgsConstructor
-public class DirectionResponse {
+public class DirectionResponse { //Har brug for geolokation
     public String type;
     public ArrayList<Feature> features;
     public ArrayList<Double> bbox;

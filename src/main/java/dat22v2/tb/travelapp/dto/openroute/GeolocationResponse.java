@@ -11,7 +11,7 @@ import java.util.ArrayList;
 @Getter
 @Setter
 @NoArgsConstructor
-public class GeolocationResponse {
+public class GeolocationResponse { //koordinater til overalt i verden
     public Geocoding geocoding;
     public String type;
     public ArrayList<Feature> features;
