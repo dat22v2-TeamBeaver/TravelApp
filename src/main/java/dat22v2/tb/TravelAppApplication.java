@@ -1,4 +1,4 @@
-package dat22v2.tb.travelapp;
+package dat22v2.tb;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
