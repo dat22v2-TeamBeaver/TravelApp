@@ -36,22 +36,29 @@ public class TravelController {
 
     @GetMapping("/findTravel")
     public DirectionResponse findTravel(@RequestParam String start, @RequestParam String end) {
-        return travelService.getTravelDetails(start,end);
+        return null; //travelService.getTravelDetails(start,end);
     }
 
     @GetMapping("/gpt")
     public ChatGPTResponse gptResponse() {
-        return travelService.getChatGPTResponse();
+        return null; //travelService.getChatGPTResponse();
     }
 
     @PostMapping()
     public ResponseEntity<TravelResponse> getTravel(@RequestBody TravelRequest body) throws TravelException {
-        TravelResponse response = travelService.getTravel(body);
+        TravelResponse response = travelService.getChatGPTTourGuide(body);
         return ResponseEntity.ok(response);
     }
 
     @GetMapping("/weather/{location}")
     public WeatherResponse getWeather(@PathVariable String location){
-        return remoteApiService.getAtmosphereResponse(location);
+        return null;//remoteApiService.atmosphereResponse(location);
     }
+
+/*    @GetMapping("/result")
+    public ChatGPTResponse getTravelGuide(@RequestParam String start, @RequestParam String end) {
+
+        return travelService.getChatGPTTourGuide();
+    }*/
+
 }

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Location Finder</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f8f8;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+    .container {
+      background-color: #fff;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      max-width: 500px;
+      width: 100%;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+    label {
+      margin-bottom: 0.5rem;
+    }
+    input {
+      margin-bottom: 1rem;
+      padding: 0.5rem;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      background-color: #007BFF;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h1>Input your location detailts</h1>
+  <form id="location-form">
+    <label for="start-location">Departure:</label>
+    <input type="text" id="start-location" name="start-location" placeholder="Enter your start location" required>
+
+    <label for="end-location">Destination:</label>
+    <input type="text" id="end-location" name="end-location" placeholder="Enter your end location" required>
+
+    <button type="submit">Find Route</button>
+  </form>
+</div>
+
+<script>
+  document.getElementById("location-form").addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const startLocation = document.getElementById("start-location").value;
+    const endLocation = document.getElementById("end-location").value;
+
+    // Call your backend function here and pass the startLocation and endLocation as arguments
+    // For example: getRoute(startLocation, endLocation);
+  });
+</script>
+</body>
+</html>
