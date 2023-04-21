@@ -10,8 +10,6 @@ import dat22v2.tb.travelapp.utility.MonoApiCaller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -33,15 +31,15 @@ public class RemoteApiService {
             apiKeyHolder.getOpenRouteAPIKey(),location).block();
     }
 
-    public DirectionResponse getDirectionResponse(String start, String end){
+    public DirectionResponse getDirectionResponse(String startLatLong, String endLatLong){
         String OPEN_ROUTE_DIRECTIONS_URL = "https://api.openrouteservice.org/v2/directions/driving-car?api_key=%s&start=%s&end=%s";
         return MonoApiCaller.callGetApi(DirectionResponse.class,OPEN_ROUTE_DIRECTIONS_URL,
-            apiKeyHolder.getOpenRouteAPIKey(), start, end).block();
+            apiKeyHolder.getOpenRouteAPIKey(), startLatLong, endLatLong).block();
     }
 
     public ChatGPTResponse getChatGPTResponse(ChatGPTRequest body){
         String OPENAI_API_URL = "https://api.openai.com/v1/chat/completions";
-        return MonoApiCaller.callTheNewPostApi(ChatGPTResponse.class, OPENAI_API_URL,
+        return MonoApiCaller.callPostApi(ChatGPTResponse.class, OPENAI_API_URL,
             body, headersWithAuthorization(apiKeyHolder.getChatGPTAPIKey())).block();
     }
 
